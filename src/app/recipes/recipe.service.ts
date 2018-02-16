@@ -12,7 +12,8 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'A Tasty Schnitzel'
+      1
+      ,'A Tasty Schnitzel'
       ,'This is simply a test'
       ,'http://maxpixel.freegreatpicture.com/static/photo/1x/Meat-Power-Recipe-Food-Dishes-Pork-1459693.jpg',
       [
@@ -20,7 +21,8 @@ export class RecipeService {
         new Ingredient('French Fries', 10)
       ]),
     new Recipe(
-      'A Test Recipe 2'
+      2
+      ,'A Test Recipe 2'
       ,'This is simply a test 2'
       ,'http://maxpixel.freegreatpicture.com/static/photo/1x/Meat-Power-Recipe-Food-Dishes-Pork-1459693.jpg',
       [
@@ -33,6 +35,15 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipeById(id: number) {
+    for (let i = 0; i < this.recipes.length; i++) {
+      if (this.recipes[i].id == id) {
+        return this.recipes[i];
+      }
+    }
+    return null;
   }
 
   addIngredientsToSL(ingredients: Ingredient[]) {
