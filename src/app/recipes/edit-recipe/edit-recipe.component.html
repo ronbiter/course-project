@@ -5,21 +5,16 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <input class="form-control" [(ngModel)]="recipe.name" [disabled]="!allowEdit">
+    <input class="form-control" [(ngModel)]="recipeName" [disabled]="!allowEdit">
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-      <input class="form-control" [(ngModel)]="recipe.description" [disabled]="!allowEdit">
+      <input class="form-control" [(ngModel)]="recipeDescription" [disabled]="!allowEdit">
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item"
-          *ngFor="let ingredient of recipe.ingredients">
-          {{ingredient.name}} - {{ingredient.amount}}
-      </li>
-    </ul>
+    <button class="btn btn-primary" (click)="onUpdateRecipe()">Update Recipe</button>
   </div>
 </div>

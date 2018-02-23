@@ -17,6 +17,10 @@ import { HomeComponent } from './home/home.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { CanDeavtivateGuard } from './recipes/edit-recipe/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +35,15 @@ import { AppRoutingModule } from './app-routing.module';
     DropdownDirective,
     HomeComponent,
     EditRecipeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, AuthService, AuthGuard, CanDeavtivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

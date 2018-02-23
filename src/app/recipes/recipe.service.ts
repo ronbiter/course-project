@@ -50,4 +50,14 @@ export class RecipeService {
       this.SLService.addIngredients(ingredients);
   }
 
+  updateRecipe(id, updatedRecipe) {
+    for (let i = 0; i < this.recipes.length; i++) {
+      if (this.recipes[i].id == id) {
+        this.recipes[i].name = updatedRecipe.name;
+        this.recipes[i].description = updatedRecipe.description;
+        return this.recipes[i];
+      }
+    }
+  }
+
 }
