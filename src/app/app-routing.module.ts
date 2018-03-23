@@ -13,13 +13,14 @@ import { ErrorPageComponent } from "./error-page/error-page.component";
 
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     {
       path: 'recipes',
       component: RecipesComponent,
       //canActivate: [AuthGuard],
       canActivateChild: [AuthGuard],
       children: [
+        {path: 'new', component: EditRecipeComponent, canDeactivate: [CanDeavtivateGuard]},          
         {path: ':id', component: RecipeDetailComponent},
         {path: ':id/edit', component: EditRecipeComponent, canDeactivate: [CanDeavtivateGuard]}
       ]

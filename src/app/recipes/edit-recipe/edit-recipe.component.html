@@ -1,16 +1,28 @@
 <div class="row">
   <div class="col-md-12">
-    <img src="{{recipe.imgPath}}" alt="" class="img-responsive">
+    <img *ngIf="editMode else new" src="{{recipe.imgPath}}" alt="" class="img-responsive">
+    <ng-template #new>
+      <div class="form-group">
+          <label for="RecipeImageLink">Recipe Image Link</label>
+          <input id="RecipeImageLink" class="form-control" [(ngModel)]="recipeImg" [disabled]="!allowEdit && editMode">
+      </div>
+    </ng-template>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <input class="form-control" [(ngModel)]="recipeName" [disabled]="!allowEdit">
+    <div class="form-group">
+        <label for="RecipeName">Recipe Name</label>
+        <input id="RecipeName" class="form-control" [(ngModel)]="recipeName" [disabled]="!allowEdit && editMode">
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-      <input class="form-control" [(ngModel)]="recipeDescription" [disabled]="!allowEdit">
+      <div class="form-group">
+          <label for="RecipeDescription">Recipe Description</label>
+          <input id="RecipeDescription" class="form-control" [(ngModel)]="recipeDescription" [disabled]="!allowEdit && editMode">
+      </div>
   </div>
 </div>
 <div class="row">
